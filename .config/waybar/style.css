@@ -276,9 +276,6 @@ window#waybar.empty #window {
     font-size:16px;
     color: @iconcolor;
 }
-#language {
-    margin-right:10px;
-}
 
 /* -----------------------------------------------------
  * Clock
@@ -331,7 +328,6 @@ window#waybar.empty #window {
     font-size: 16px;
     color: @textcolor0;
     border-radius: 15px;
-    padding: 1px 10px 0px 9px;
     margin: 10px 5px 10px 6px;
 }
 
@@ -351,8 +347,8 @@ window#waybar.empty #window {
     font-size: 16px;
     color: @textcolor0;
     border-radius: 15px;
-    padding: 2px 10px 0px 10px;
-    margin: 10px 15px 10px 0px;
+    padding: 0px 5px 0px 0px;
+    margin: 10px 5px 10px 6px;
 }
 
 #bluetooth.off {

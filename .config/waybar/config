@@ -43,13 +43,7 @@
     // Modules Left
     "modules-left": [
     "hyprland/workspaces",
-    // "custom/appmenu"
-    //"custom/settings",
-    // "custom/waybarthemes",
-
-    //  "group/quicklinks",
     "hyprland/window"
-    //  "custom/starter"
     ],
 
     // Modules Center
@@ -60,20 +54,12 @@
 
     // Modules Right    
     "modules-right": [
-    //  "custom/waybar-media",
-        "custom/playerprevious",
-        "custom/playerpause",
-        "custom/playernext",
-        "pulseaudio",
-    //  "bluetooth",
-        "network",
-    //  "group/hardware",
-        "cpu",
-        "memory",
-    // "custom/wallpaper",
         "tray",
+        "group/hardware",
+        "pulseaudio",
+        "network",
+        "bluetooth",
+        "battery",
         "custom/exit"
-    // "custom/ml4w-welcome",
-
     ]
 }

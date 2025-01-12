@@ -45,10 +45,10 @@ else
     echo ""
     if ask_yn "Do you want to install required dependencies with yay (very recommended)?"; then
         yay -Syu \
-            hyprland waybar waypaper swww rofi-wayland swaync python-pipx nemo kitty pavucontrol \
-            gtk2 gtk3 nwg-look fastfetch zsh nerd-fonts-complete networkmanager networkmanager-qt \
+            hyprland hyprlock waybar waypaper swww rofi-wayland python-pipx nemo kitty pavucontrol \
+            gtk2 gtk3 nwg-look fastfetch btop cava networkmanager networkmanager-qt \
             nm-connection-editor xcur2png gsettings-qt hyprshot wlogout ttf-fira-sans ttf-firecode-nerd \
-            otf-droid-nerd texlive-fontsextra
+            otf-droid-nerd texlive-fontsextra ttf-material-symbols-variable-git ttf-droid ttf-font-awesome
     else
         echo "Skipping dependency installation..."
         clear
@@ -71,10 +71,10 @@ else
             echo ""
             if ask_yn "Do you want to install required dependencies with paru (very recommended)?"; then
                 paru -Syu \
-                    hyprland waybar waypaper swww rofi-wayland swaync python-pipx nemo kitty pavucontrol \
-                    gtk2 gtk3 nwg-look fastfetch zsh nerd-fonts-complete networkmanager networkmanager-qt \
+                    hyprland hyprlock waybar waypaper swww rofi-wayland python-pipx nemo kitty pavucontrol \
+                    gtk2 gtk3 nwg-look fastfetch btop cava networkmanager networkmanager-qt \
                     nm-connection-editor xcur2png gsettings-qt hyprshot wlogout ttf-fira-sans ttf-firecode-nerd \
-                    otf-droid-nerd texlive-fontsextra
+                    otf-droid-nerd texlive-fontsextra ttf-material-symbols-variable-git ttf-droid ttf-font-awesome
             else
                 echo "Skipping dependency installation..."
                 sleep 2

@@ -85,21 +85,6 @@ else
 fi
 fi
 
-
-# Oh My Zsh
-echo ""
-if ask_yn "Do you want to install Oh My Zsh?"; then
-    if [ -d "$HOME/.oh-my-zsh" ]; then
-        echo "Oh My Zsh is already installed."
-    else
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    fi
-else
-    echo "Skipping Oh My Zsh installation..."
-    sleep 2
-    clear
-fi
-
 # Copy configuration files
 echo ""
 echo "Copying configuration files..."
@@ -121,7 +106,6 @@ copy_with_backup() {
 
 echo "Backing up existing configurations to $BACKUP_DIR"
 copy_with_backup "$SCRIPT_DIR/.config/" "$HOME/.config/"
-copy_with_backup "$SCRIPT_DIR/.zshrc" "$HOME/.zshrc"
 copy_with_backup "$SCRIPT_DIR/wallpaper" "$HOME/wallpaper"
 copy_with_backup "$SCRIPT_DIR/.themes/" "$HOME/.themes/"
 

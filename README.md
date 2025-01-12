@@ -6,7 +6,6 @@ Thanks to [Ollie](https://github.com/PilkDrinker) for making this possible by fo
 
 ### Contents
 - [Automatic Installation for Arch](https://github.com/7ev3nDev/hyprland-dots?tab=readme-ov-file#installationforarch)
-- [Manual Installation](https://github.com/7ev3nDev/hyprland-dots?tab=readme-ov-file#manual-installation)
 - [Extra configuration](https://github.com/7ev3nDev/hyprland-dots?tab=readme-ov-file#extra-configuration)
 
 ## Screenshots

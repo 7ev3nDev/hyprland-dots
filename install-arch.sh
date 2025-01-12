@@ -28,47 +28,40 @@ else
     sleep 2
     clear
 fi
+
 # Detect if yay is installed, if not, ask user if they want to install it + dependency installation.
 if ! pacman -Q yay &>/dev/null; then
     echo "yay not detected, proceeding with install script..."
     if ask_yn "Do you want to install yay (AUR helper)?"; then
-    echo "Installing yay (AUR helper)..."
-    sudo pacman -Syu --needed base-devel git
-    git clone https://aur.archlinux.org/yay.git ~/yay
-    (cd ~/yay && makepkg -si)
-    rm -rf ~/yay
-    clear
-else
-    echo "yay detected, skipping installation and proceeding with dependency installation..."
-    sleep 2
-    clear
-    echo ""
-    if ask_yn "Do you want to install required dependencies with yay (very recommended)?"; then
-        yay -Syu \
-            hyprland hyprlock waybar waypaper swww rofi-wayland python-pipx nemo kitty pavucontrol \
-            gtk2 gtk3 nwg-look fastfetch btop cava networkmanager networkmanager-qt \
-            nm-connection-editor xcur2png gsettings-qt hyprshot wlogout ttf-fira-sans ttf-firecode-nerd \
-            otf-droid-nerd texlive-fontsextra ttf-material-symbols-variable-git ttf-droid ttf-font-awesome
-    else
-        echo "Skipping dependency installation..."
+        echo "Installing yay (AUR helper)..."
+        sudo pacman -Syu --needed base-devel git
+        git clone https://aur.archlinux.org/yay.git ~/yay
+        (cd ~/yay && makepkg -si)
+        rm -rf ~/yay
         clear
-    fi
-
-    # Detect if paru is installed, if not, ask user if they want to install it + dependency installation.
-    if ! pacman -Q paru &>/dev/null; then
-        echo "paru not detected, proceeding with install script..."
-        if ask_yn "Do you want to install paru (AUR helper)? (You dont have to do this if you already installed yay) "; then
-            echo "Installing paru (AUR helper)..."
-            sudo pacman -Syu --needed base-devel git
-            git clone https://aur.archlinux.org/paru.git ~/paru
-            (cd ~/paru && makepkg -si)
-            rm -rf ~/paru
-            clear
+        echo "yay has been successfully installed. Please restart the script to continue."
+        exit 0
+    else
+        if ! pacman -Q paru &>/dev/null; then
+            echo "paru not detected, proceeding with install script..."
+            if ask_yn "Do you want to install paru (AUR helper)?"; then
+                echo "Installing paru (AUR helper)..."
+                sudo pacman -Syu --needed base-devel git
+                git clone https://aur.archlinux.org/paru.git ~/paru
+                (cd ~/paru && makepkg -si)
+                rm -rf ~/paru
+                clear
+                echo "paru has been successfully installed. Please restart the script to continue."
+                exit 0
+            else
+                clear
+                echo "Skipping dependency installation..."
+                clear
+            fi             
         else
             echo "paru detected, skipping installation and proceeding with dependency installation..."
             sleep 2
             clear
-            echo ""
             if ask_yn "Do you want to install required dependencies with paru (very recommended)?"; then
                 paru -Syu \
                     hyprland hyprlock waybar waypaper swww rofi-wayland python-pipx nemo kitty pavucontrol \
@@ -79,14 +72,27 @@ else
                 echo "Skipping dependency installation..."
                 sleep 2
                 clear
-            fi
-        fi
+            fi                
+        fi          
+    fi    
+else
+    echo "yay detected, skipping installation and proceeding with dependency installation..."
+    sleep 2
+    clear
+    if ask_yn "Do you want to install required dependencies with yay (very recommended)?"; then
+        yay -Syu \
+            hyprland hyprlock waybar waypaper swww rofi-wayland python-pipx nemo kitty pavucontrol \
+            gtk2 gtk3 nwg-look fastfetch btop cava networkmanager networkmanager-qt \
+            nm-connection-editor xcur2png gsettings-qt hyprshot wlogout ttf-fira-sans ttf-firecode-nerd \
+            otf-droid-nerd texlive-fontsextra ttf-material-symbols-variable-git ttf-droid ttf-font-awesome
+    else
+        echo "Skipping dependency installation..."
+        sleep 2
+        clear
     fi
-fi
 fi
 
 # Copy configuration files
-echo ""
 echo "Copying configuration files..."
 sleep 1
 
@@ -121,7 +127,6 @@ else
     clear
 fi
 
-echo ""
 echo "Ready in 3..."
 sleep 1
 echo "2"

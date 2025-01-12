@@ -42,6 +42,7 @@ if ! pacman -Q yay &>/dev/null; then
         echo "yay has been successfully installed. Please restart the script to continue."
         exit 0
     else
+        # Detect if paru is installed, if not, ask user if they want to install it + dependency installation.
         if ! pacman -Q paru &>/dev/null; then
             echo "paru not detected, proceeding with install script..."
             if ask_yn "Do you want to install paru (AUR helper)?"; then
